@@ -13,9 +13,9 @@ gem 'uglifier', '>= 1.3.0'
 # Use Juqery file upload plugin
 gem 'jquery-fileupload-rails', github: 'Springest/jquery-fileupload-rails'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
-gem 'dragonfly'
-gem 'dragonfly-s3_data_store'
+# gem 'tzinfo-data', platforms: [:mingw, :mswin]
+# gem 'dragonfly'
+# gem 'dragonfly-s3_data_store'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
