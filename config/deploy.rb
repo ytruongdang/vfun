@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'vfun'
+set :application, 'vfuns'
 set :repo_url, 'git@github.com:ytruongdang/vfun.git'
 
 # Default branch is :master
@@ -9,7 +9,7 @@ set :repo_url, 'git@github.com:ytruongdang/vfun.git'
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, '/var/www/my_app_name'
-set :deploy_to, '/home/deploy/vfun'
+set :deploy_to, '/home/deploy/vfuns'
 # Default value for :scm is :git
 # set :scm, :git
 
