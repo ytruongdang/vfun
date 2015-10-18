@@ -1,0 +1,15 @@
+<%= content_for(:title, 'Đăng Nhập' ) %>
+<h1>Đăng Nhập</h1>
+<%= form_tag '/dang-nhap' do %>
+  <div class="input-grouped">
+    <%= label_tag 'username', 'Email hoặc Username' %>
+    <%= text_field_tag 'username', nil, class: 'form-control' %>
+  </div>
+  <div class="input-grouped">
+    <%= label_tag :password %>
+    <%= password_field_tag 'password', nil, class: 'form-control' %>
+  </div>
+  <div class="input-grouped">
+    <%= submit_tag 'Đăng Nhập', class: 'btn btn-success' %>
+  </div>
+<% end %>

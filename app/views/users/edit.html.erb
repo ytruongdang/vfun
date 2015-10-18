@@ -1,0 +1,9 @@
+<h1>Editing User</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>
+<% content_for :footer do %>
+  <%= javascript_include_tag 'video' %>
+<% end %>

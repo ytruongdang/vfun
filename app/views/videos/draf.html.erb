@@ -1,0 +1,42 @@
+<% if permission? %>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Posts by</th>
+    <th>Title</th>
+    <th>Preview</th>
+    <td>Action</td>
+  </tr>
+  </thead>
+  <tbody>
+    <tr><td colspan="4"><%= will_paginate @videos %></td></tr>
+    <% @videos.each do |video|  %>
+    <tr>
+      <td width="10%"><%= video.user.username %></td>
+      <td width="60%"><%= video.title %></td>
+      <td width="20">
+        <% if video.video_type == "upload" %>
+          <img src="<%= get_name(video.attachment.video_file_name, video.attachment.video.url) %>.jpg" style="with: 150px; height: 150px">
+        <% elsif video.video_type == "youtube" %>
+          <img src="http://img.youtube.com/vi/<%= video.video_id %>/mqdefault.jpg" style="with: 150px; height: 150px">
+        <% elsif video.video_type == "9gag" %>
+          <img src="http://img-9gag-fun.9cache.com/photo/<%= video.video_id %>.jpg" style="with: 150px; height: 150px">
+        <% else %>
+        <% end %>
+      </td>
+      <td width="10%">
+        <%= link_to published_video_path(video), method: :post do %>Publish <% end %>
+        <%= link_to 'edit', edit_video_path(video) %>
+        <%= link_to 'delete', video_path(video), method: :delete, data: { confirm: 'are you sure ?' } %>
+      </td>
+    </tr>
+    <% end %>
+    
+  </tbody>
+  <tfoot>
+    <tr><td colspan="4"><%= will_paginate @videos %></td></tr>
+  </tfoot>
+</table>
+<% else %>
+  <%= link_to 'Back to home', videos_path %>
+<% end %>

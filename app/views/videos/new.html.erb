@@ -1,0 +1,9 @@
+<%= content_for(:title, "Submit") %>
+<% meta_tag :description, 'Video Mới, video hài mới nhất' %>
+<h1>Chia sẻ video của bạn ngay</h1>
+<%= render 'form' %>
+
+<%= link_to 'Back', videos_path %>
+<% content_for :footer do %>
+  <%= javascript_include_tag 'video' %>
+<% end %>

@@ -1,0 +1,286 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+body {
+  background-color: #f8f8f8;
+}
+.navbar-default {
+  background-color: #fff;
+}
+.input-group {
+  width: 100%;
+}
+
+.sidebar {
+  padding-top: 15px;
+  background-color: #fff;
+  border: 1px solid #d5d5d5;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: 10px;
+}
+.user-box {
+  padding-bottom: 10px;
+}
+.user-box .user-detail {
+  display: table;
+}
+.user-box .user-detail:after {
+  clear: both;
+}
+.col-md-9 .pagination {
+  margin: 0 0 0 0;
+}
+.list-all-video .video {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  float: left;
+  border: 1px solid #d5d5d5;
+  background-color: #fff;
+  padding: 10px;
+}
+.video-thumbnai {
+  float: left;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.video-thumbnai span {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  left: 50%;
+  margin-left: -30px;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  overflow: hidden;
+  line-height: 58px;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: .9;
+
+}
+.video {
+  text-align: center;
+}
+.video-thumbnai span i {
+  background-color: #222;
+  border-radius: 50%;
+  width: 51px;
+  height: 50px;
+  font-size: 50px;
+}
+.video-thumbnai img {
+  width: 100%;
+}
+.video-info {
+  float: left;
+  width: 100%;
+}
+.video-info h2 {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+.video-info h2 a {
+  text-decoration: none;
+  color: #383636;
+}
+video-info h2 a:hover {
+  text-decoration: none;
+  color: #2A7EC5;
+}
+
+.widgets h3 {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-size: 18px;
+}
+.widgets .list-post {
+  width: 100%;
+  display: table;
+}
+.widgets .video-image {
+  float: left;
+}
+.widgets img {
+  width: 120px;
+  height: 90px;
+  float: left;
+}
+
+.widgets h4 {
+  float: left;
+  margin: 10px;
+}
+
+.video-info.detail, .description {
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #d5d5d5;
+  padding: 20px;
+  margin-top: 10px;
+  float: left;
+}
+.description {
+  margin-bottom: 10px;
+}
+.detail h1 {
+  font-size: 22px;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.user-info {
+  position: relative;
+  border-bottom: 1px solid #d5d5d5;
+  padding-bottom: 10px;
+  width: 100%;
+  float: left;
+}
+.link-avatar {
+  margin-right: 10px;
+  float: left;
+  display: inline-block;
+}
+.user-profile {
+  display: inline-block;
+  float: left;
+}
+.username a{
+  margin-right: 0px;
+}
+.submit-video {
+  border: 1px solid #d5d5d5;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.submit-video h2 {
+  font-size: 20px;
+}
+.user-info a {
+  font-weight: bold;
+  color: #333;
+}
+.count-viewed {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.video-action {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.social-share.list-inline {
+  margin-left: 0;
+  display: inline-block;
+}
+.social-share a {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  background-color: red;
+  float: left;
+  line-height: 32px;
+  font-size: 20px;
+  margin-right: 5px;
+  margin-top: 5px;
+  color: #fff;
+}
+.vote {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+.vote a {
+  margin-left: 10px;
+  font-size: 20px;
+}
+.description h5 {
+  font-weight: bold;
+}
+.read-more {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-top: 1px solid #d5d5d5;
+  line-height: 38px;
+  margin-bottom: -20px;
+}
+.hidden-text {
+  height: 100px;
+  overflow: hidden;
+  display: inline-block;
+}
+#footer .navbar {
+  margin-bottom: 0;
+}
+#footer p, #footer a {
+  line-height: 50px;
+}
+#footer a {
+  float: right;
+  margin-left: 10px;
+  text-transform: uppercase;
+  color: #777;
+}
+
+/* tags  */
+/* surrounding tag container */
+.tag-editor {
+    list-style-type: none; padding: 0 5px 0 0; margin: 0; overflow: hidden; border: 1px solid #eee; cursor: text;
+    font: normal 14px sans-serif; color: #555; background: #fff;
+}
+
+/* core styles usually need no change */
+.tag-editor li { display: block; float: left; overflow: hidden; margin: 3px 0; line-height: 1.5; }
+.tag-editor div { float: left; padding: 0 4px; }
+.tag-editor .placeholder { padding: 0 8px; color: #bbb; }
+.tag-editor .tag-editor-spacer { padding: 0; width: 8px; overflow: hidden; color: transparent; background: none; }
+.tag-editor input {
+    vertical-align: inherit; border: 0; outline: none; padding: 0; margin: 0; cursor: text;
+    font-family: inherit; font-weight: inherit; font-size: inherit; font-style: inherit;
+    box-shadow: none; background: none;
+}
+/* hide original input field or textarea visually to allow tab navigation */
+.tag-editor-hidden-src { position: absolute !important; left: -99999px; }
+/* hide IE10 "clear field" X */
+.tag-editor ::-ms-clear { display: none; }
+
+/* tag style */
+.tag-editor .tag-editor-tag {
+    padding-left: 5px; color: #46799b; background: #e0eaf1; white-space: nowrap;
+    overflow: hidden; cursor: pointer; border-radius: 2px 0 0 2px;
+}
+
+/* delete icon */
+.tag-editor .tag-editor-delete { background: #e0eaf1; cursor: pointer; padding-right: 5px; border-radius: 0 2px 2px 0; }
+.tag-editor .tag-editor-delete i {
+    display: inline-block; width: 7px; height: 7px; vertical-align: middle; background: url(delete.png) 0 0 no-repeat;
+    position: relative; top: -1px;
+}
+.tag-editor .tag-editor-delete:hover i { background-position: 0 -14px; }
+.tag-editor .tag-editor-tag.active+.tag-editor-delete,
+.tag-editor .tag-editor-tag.active+.tag-editor-delete i { background: none; cursor: text; }
+
+.tag-editor .tag-editor-tag.active { background: none !important; }
+
+/* jQuery UI autocomplete - code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css */
+.ui-autocomplete { position: absolute; top: 0; left: 0; cursor: default; font-size: 14px; }
+.ui-front { z-index: 9999; }
+.ui-menu { list-style: none; padding: 1px; margin: 0; display: block; outline: none; }
+.ui-menu .ui-menu-item a { text-decoration: none; display: block; padding: 2px .4em; line-height: 1.4; min-height: 0; /* support: IE7 */ }
+.ui-widget-content { border: 1px solid #bbb; background: #fff; color: #555; }
+.ui-widget-content a { color: #46799b; }
+.ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus { background: #e0eaf1; }
+.ui-helper-hidden-accessible { display: none; }
+.progress-wrapper {
+  display: none;
+}

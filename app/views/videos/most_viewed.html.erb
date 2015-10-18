@@ -1,0 +1,58 @@
+<%= content_for(:title, "Video Hot") %>
+<% meta_tag :description, 'Video Mới, video hài mới nhất' %>
+<div class="list-all-video">
+  <% @videos.each do |p|  %>
+  <div class="video">
+    <div class="video-thumbnai ">
+    <% if p.video_type == "youtube" %>
+      <%= link_to video_path(p), target: '_blank' do %><img src="http://i.ytimg.com/vi/<%= p.video_id %>/hqdefault.jpg" ><% end %>
+    <% 
+      elsif p.video_type == "9gag"   
+        image = rend_dimention_video(p.dimention)      
+    %>
+      <video loop preload class="video-detail-gif" poster="http://img-9gag-fun.9cache.com/photo/<%= p.video_id %>.jpg" width="<%= image['width'] %>" height="<%= image['height'] %>">
+        <source src="http://img-9gag-fun.9cache.com/photo/<%= p.video_id %>v.mp4" type="video/mp4" >
+        <source src="http://img-9gag-fun.9cache.com/photo/<%= p.video_id %>vwm.webm" type="video/webm" >
+       
+      </video>
+      <span><i class="fa fa-play-circle-o"></i></span>
+    <% elsif p.video_type == "upload" %>
+    <% image = rend_dimention_video(p.attachment.dimention) %>
+      <video loop preload class="video-detail-gif" poster="<%= get_name(p.attachment.video_file_name, p.attachment.video.url) %>.jpg" width="<%= image['width'] %>" height="<%= image['height'] %>">
+        <source src="<%= p.attachment.video %>" type="<%= (p.attachment.video_content_type == 'video/mp4') ? 'video/mp4' : 'video/webm' %>" >     
+      </video>
+      <span><i class="fa fa-play-circle-o"></i></span>
+    <% end %>
+    </div>
+    <div class="video-info">
+      <h2><%= link_to p.title, video_path(p), target: '_blank' %></h2>
+      <div class="video-data">
+        <span>Post by: <%= link_to p.user.username, user_path(p.user), class: 'video-user' %></span>
+        <span>Views: <%= (p.viewed ? number_with_delimiter(p.viewed, delimiter: '.') : 0 ) %></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<%= will_paginate @videos %>
+<%= content_for :sidebar do %>
+  <div class="sidebar widgets featured-post">
+    <h3>Video Được Xem Nhiều</h3>
+    <div class="list-post">
+      <% @populare.each do |populare| %>
+      <div class="video-image">
+        <% if populare.video_type == "youtube" %>
+        <img src="https://i.ytimg.com/vi/<%= populare.video_id %>/hqdefault.jpg">
+      <% elsif populare.video_type == "9gag" %>
+        <img src="http://img-9gag-fun.9cache.com/photo/<%= populare.video_id %>.jpg">
+      <% elsif populare.video_type == "upload" %>
+        <img src="<%= get_name(populare.attachment.video_file_name, populare.attachment.video.url) %>.jpg">
+      <% else %>
+        <img src="https://i.ytimg.com/vi/<%= populare.video_id %>/hqdefault.jpg">
+      <% end %>
+        <span><%= link_to populare.title, video_path(populare) %></span>
+      </div>      
+      <% end %>
+    </div>
+  </div>
+<% end %>

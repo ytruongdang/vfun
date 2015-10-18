@@ -1,0 +1,9 @@
+<%= content_for(:title, 'Đăng Ký' ) %>
+<h1>Đăng Ký</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', videos_path %>
+<% content_for :footer do %>
+  <%= javascript_include_tag 'video' %>
+<% end %>

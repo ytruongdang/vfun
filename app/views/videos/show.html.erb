@@ -1,0 +1,80 @@
+<%= content_for(:title, @video.title) %>
+<%= content_for(:description, @video.description) %>
+<%= content_for(:keywords, @video.tag_list) %>
+<div class="video <%= "embed-responsive embed-responsive-16by9" if @video.video_type == "youtube" || @video.video_type == "" %>">
+  
+  <% if @video.video_type == "upload" %>
+	 <% image = rend_dimention_video(@video.attachment.dimention) %>
+     <video loop controls preload autoplay class="video-detail-gif" poster="<%= get_name(@video.attachment.video_file_name, @video.attachment.video.url) %>.jpg" width="<%= image['width'] %>" height="<%= image['height'] %>">
+        <source src="<%= @video.attachment.video %>" type="<%= (@video.attachment.video_content_type == 'video/mp4') ? 'video/mp4' : 'video/webm' %>" >     
+      </video>
+  <% elsif @video.video_type == "9gag" %>
+  	<% image = rend_dimention_video(@video.dimention) %>
+     <video loop controls preload autoplay class="video-detail-gif" poster="http://img-9gag-fun.9cache.com/photo/<%= @video.video_id %>.jpg" width="<%= image['width'] %>" height="<%= image['height'] %>">
+        <source src="http://img-9gag-fun.9cache.com/photo/<%= @video.video_id %>v.mp4" type="video/mp4" >
+        <source src="http://img-9gag-fun.9cache.com/photo/<%= @video.video_id %>vwm.webm" type="video/webm" >
+      </video>
+  <% else %>
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= @video.video_id%>" frameborder="0" allowfullscreen></iframe>
+  <% end %>
+</div>
+<div class="video-info detail">
+  <h1><%= @video.title %></h1>
+  <div class="user-info">
+    <div class="user-detail">
+      <%= link_to user_path(@video.user), class: "link-avatar" do %>
+        <%= gravatar_url_for(@video.user) %>
+      <% end %>
+      <%= link_to @video.user.username, user_path(@video.user) %>
+    </div>
+    <span class="count-viewed"><i class="glyphicon glyphicon-eye-open"></i>&nbsp<%= number_with_delimiter(@video.viewed, delimiter: '.') %></span>
+  </div>
+  <div class="video-action">
+    <div class="share">
+      <div class="social-share list-inline">
+        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+      </div>
+      <div class="vote">
+        <%= link_to like_video_path(@video), remote: true, format: :json, method: :post, class: 'vote_like' do %>
+        <i class="glyphicon glyphicon-thumbs-up"></i>
+        <% end %>&nbsp<span id="liked_number"><%= ( @video.liked ? number_with_delimiter(@video.liked, delimiter: '.') : 0 ) %></span>
+        <%= link_to dislike_video_path(@video), method: :post, class: 'vote_dislike', remote: true do %>
+        <i class="glyphicon glyphicon-thumbs-down"></i>
+        <% end %>&nbsp<span id="disliked_number"><%= (@video.disliked ? number_with_delimiter(@video.disliked, delimiter: '.') : 0 ) %></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="description">
+  <h5>Created at: <%= @video.created_at %></h5>
+  <div class="description-text">
+    <div class="hidden-text">      
+      <%= simple_format(@video.description) %>
+    </div>
+    <div class="read-more">Read More</div>
+  </div>
+</div>
+<%= content_for :sidebar do %>
+  <div class="sidebar widgets featured-post">
+    <h3>Relate Video</h3>
+    <div class="list-post">
+      <% @populare.each do |populare| %>
+      <div class="video-image">
+      <% if populare.video_type == "youtube" %>
+        <img src="https://i.ytimg.com/vi/<%= populare.video_id %>/hqdefault.jpg">
+      <% elsif populare.video_type == "9gag" %>
+        <img src="http://img-9gag-fun.9cache.com/photo/<%= populare.video_id %>.jpg">
+      <% elsif populare.video_type == "facebook" %>
+        <img src="<%= get_name(populare.video_file_name, populare.video.url) %>.jpg">
+      <% else %>
+        <img src="https://i.ytimg.com/vi/<%= populare.video_id %>/hqdefault.jpg">
+      <% end %>
+        
+        <span><%= link_to populare.title, video_path(populare) %></span>
+      </div>      
+      <% end %>
+    </div>
+  </div>
+<% end %>

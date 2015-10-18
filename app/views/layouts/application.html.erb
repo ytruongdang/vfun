@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= (yield(:title).empty? ? "RubyonRails" : yield(:title) + " - RubyonRails") %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name='description' content="<%= (yield(:description).empty? ? "video hài mới nhất, clip hài mới nhất, xem hài mới nhất" : yield(:description) ) %>" />
+  <meta name='keywords' content="<%= (yield(:keywords).empty? ? 'video hài, video vui, video cười' : yield(:keywords) ) %>" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header>
+	    <nav class="navbar navbar-default">
+	      <div class="container-fluid">
+	        <!-- Brand and toggle get grouped for better mobile display -->
+	        <div class="navbar-header">
+	          	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+	          	</button>
+	          	<%= link_to "RubyonRails", root_path, class: 'navbar-brand' %>
+	        </div>
+	    
+	        <!-- Collect the nav links, forms, and other content for toggling -->
+	        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	          	<ul class="nav navbar-nav">
+		            <li class="<%= "active" if controller?("videos") && action?("index", "show") %>">
+		              	<%= link_to 'Mới Nhất', root_path %>
+		            </li>
+		            <li class="<%= "active" if controller?("videos") && action?("most_viewed") %>">
+		              	<%= link_to 'Hot Nhất', most_viewed_videos_path %>
+		            </li>
+		            
+	          	</ul>
+	          
+	          <ul class="nav navbar-nav navbar-right">
+	            <li class="<%= "active" if controller?("videos") && action?("new") %>"><%= link_to 'Submit Video', new_video_path %></li>
+	            <% if user_logged? %>
+	              <li class="dropdown">
+	                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %> <span class="caret"></span></a>
+	                <ul class="dropdown-menu">
+	                	<% if permission? %>
+	                	<li class="<%= "active" if controller?("videos") && action?("draf") %>"><%= link_to 'Draf', draf_videos_path %></li>
+	                	<% end %>
+	                  	<li><%= link_to 'View Profile', user_path(current_user) %></li>
+	                  	<li><%= link_to 'Logout', dang_xuat_path %></li>
+	                </ul>
+	              </li>
+	            <% else %>
+
+	            <li><%= link_to 'Register', dang_ky_path %></li>
+	            <li><%= link_to 'Login', dang_nhap_path %></li>
+	            <% end %>
+	            
+	          </ul>
+	        </div><!-- /.navbar-collapse -->
+	      </div><!-- /.container-fluid -->	      
+	    </nav>
+	</header>
+	<div class="page-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-lg-6 col-md-offset-1 no-padding">
+					<%= render 'shared/messages' %>
+					<%= yield %>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-lg-4">
+			        <%= yield :sidebar %>
+			    </div>
+			</div>			
+		</div>
+	</div>
+	<footer id="footer">
+	  	<div class="navbar navbar-default">
+		    <div class="container-fluid">
+		      	<div class="row">
+			        <div class="col-xs-12 col-sm-6 col-lg-6">
+			          <p>Copyright &#169; 2015</p>
+			        </div>
+		      	</div>
+		    </div>
+	  	</div>
+	</footer>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= yield :footer %>
+</body>
+</html>
