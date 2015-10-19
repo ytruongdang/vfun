@@ -71,7 +71,7 @@ class VideosController < ApplicationController
         format.json { render json: @video }
       end
     else
-      @erorrs = {:message => 'hihie', :path => login_path}
+      @erorrs = {:message => 'hihie', :path => dang_nhap_path}
       respond_to do |format|
         format.json { render json: @erorrs }
       end
@@ -95,7 +95,7 @@ class VideosController < ApplicationController
         format.json { render json: @video }
       end
     else
-      @erorrs = {:message => 'hihie', :path => login_path}
+      @erorrs = {:message => 'hihie', :path => dang_nhap_path}
       respond_to do |format|
         format.json { render json: @erorrs }
       end
