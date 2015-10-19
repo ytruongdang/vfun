@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
       if dimention['width']/dimention['height'] >= 0.8
         return {'width'=> '100%', 'height' => 'auto'}
       else
-        return {'width'=> 'auto', 'height' => dimention['height']*1.2 + "px"}
+        return {'width'=> 'auto', 'height' => "#{dimention['height']*1.2} px"}
       end
       # return dimention
     end
