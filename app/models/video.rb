@@ -13,7 +13,7 @@ class Video < ActiveRecord::Base
 	validates :title, presence: true
 	validates :video_id, presence: true, unless: ->(video){ video.attachment_id.present? }
 	scope :most_viewd, ->{where(status: 'published').order(viewed: :desc).limit(10)}
-	scope :relate, ->(id, tag_ids){ joins(:taggings).where(taggings: { tag_id: tag_ids }).where.not(id: id).where(status: 'published').limit(10) }
+	scope :relate, ->(id, tag_ids){ joins(:taggings).where(taggings: { tag_id: tag_ids }).where.not(id: id).where(status: 'published').group(:id).limit(10) }
 	scope :published, ->{ where(status: 'published').order(updated_at: :desc) }
 	scope :video_draf, ->{ where(status: nil).order(created_at: :desc) }
 	scope :most_liked, ->{ where(status: 'published').order(liked: :desc).limit(10) }
