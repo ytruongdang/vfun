@@ -42,7 +42,21 @@
         
       })
       
-    })
+    });
+    $(document).on('click', '.video-thumbnai', function(){
+      var video = $(this).find('video.video-detail-gif');
+      var icon = $(this).find('span');
+      var state = video.data('onplay');
+      if(state){
+        video.data("onplay", false);
+        icon.css("display", "block");
+        video.trigger("pause");
+      }else{         
+        video.data("onplay", true);
+        video.trigger("play");
+        icon.css("display", "none");
+      }
+    });
     
   });
   

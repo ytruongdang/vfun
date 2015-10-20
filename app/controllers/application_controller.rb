@@ -51,8 +51,10 @@ class ApplicationController < ActionController::Base
       dimention = JSON.parse(data)
       if dimention['width']/dimention['height'] >= 0.8
         return {'width'=> '100%', 'height' => 'auto'}
-      else
+      elsif dimention['height'] <= 600
         return {'width'=> 'auto', 'height' => "#{dimention['height']*1.2} px"}
+      else
+        return {'width'=> 'auto', 'max-height' => '600px'}
       end
       # return dimention
     end
