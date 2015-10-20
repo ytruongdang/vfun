@@ -66,8 +66,8 @@
         <img src="https://i.ytimg.com/vi/<%= populare.video_id %>/hqdefault.jpg">
       <% elsif populare.video_type == "9gag" %>
         <img src="http://img-9gag-fun.9cache.com/photo/<%= populare.video_id %>.jpg">
-      <% elsif populare.video_type == "facebook" %>
-        <img src="<%= get_name(populare.video_file_name, populare.video.url) %>.jpg">
+      <% elsif populare.video_type == "upload" %>
+        <img src="<%= get_name(populare.attachment.video_file_name, populare.attachment.video.url) %>.jpg">
       <% else %>
         <img src="https://i.ytimg.com/vi/<%= populare.video_id %>/hqdefault.jpg">
       <% end %>
