@@ -7,6 +7,7 @@
   <meta name='description' content="<%= (yield(:description).empty? ? "video hài mới nhất, clip hài mới nhất, xem hài mới nhất" : yield(:description) ) %>" />
   <meta name='keywords' content="<%= (yield(:keywords).empty? ? 'video hài, video vui, video cười' : yield(:keywords) ) %>" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>  
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -84,7 +85,7 @@
 		    </div>
 	  	</div>
 	</footer>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	
 	<%= yield :footer %>
 </body>
 </html>
