@@ -11,3 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+/config/environments/production.rb
+/config/database.yml
+/config/deplop.rb
+/config/secrets/yml

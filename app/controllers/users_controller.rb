@@ -32,7 +32,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:success] = "Bạn đã đăng ký thành công"
+        UserMailer.registration_confirmation(@user).deliver
+        flash[:success] = "Bạn đã đăng ký thành công!Bạn vui lòng vào mail để chứng thực tài khoản"
         session[:user_id] = @user.id
         format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }

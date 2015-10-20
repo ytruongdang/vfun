@@ -49,6 +49,4 @@ test:
 #
 production:
   <<: *default
-  database: vfun_com_production
-  username: vfun_com
-  password: <%= ENV['VFUN_COM_DATABASE_PASSWORD'] %>
+  database: vfun_production
