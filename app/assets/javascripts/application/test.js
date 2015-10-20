@@ -35,8 +35,10 @@
         {
           $(this).trigger("play");
           $(this).parent().find('span').css("display", "none");
+          $(this).data("onplay", true);
         }else{
           $(this).trigger("pause");
+          $(this).data("onplay", false);
           $(this).parent().find('span').css("display", "block");
         }
         

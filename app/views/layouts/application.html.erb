@@ -64,7 +64,11 @@
 	<div class="page-wrapper">
 		<div class="container-fluid">
 			<div class="row">
+				<% if controller?("videos") && action?("show") %>
+				<div class="col-xs-12 col-sm-8 col-lg-8 no-padding">
+				<% else %>
 				<div class="col-xs-12 col-sm-6 col-lg-6 col-md-offset-1 no-padding">
+				<% end %>
 					<%= render 'shared/messages' %>
 					<%= yield %>
 				</div>
