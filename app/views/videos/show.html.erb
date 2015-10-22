@@ -2,16 +2,16 @@
 <%= content_for(:description, @video.description) %>
 <%= content_for(:keywords, @video.tag_list) %>
 <%= content_for(:type, "article") %>
-<%= content_for(:image_content, "http://video4l" + get_name(@video.attachment.video_file_name, @video.attachment.video.url) + ".jpg" ) %>
+<%= content_for(:image_content, image_content(@video) ) %>
 <div class="video <%= "embed-responsive embed-responsive-16by9" if @video.video_type == "youtube" || @video.video_type == "" %>">
   
   <% if @video.video_type == "upload" %>
-	 <% image = rend_dimention_video(@video.attachment.dimention) %>
+   <% image = rend_dimention_video(@video.attachment.dimention) %>
      <video loop controls preload autoplay class="video-detail-gif" poster="<%= get_name(@video.attachment.video_file_name, @video.attachment.video.url) %>.jpg" width="<%= image['width'] %>" height="<%= image['height'] %>" style="max-width: 600px">
         <source src="<%= @video.attachment.video %>" type="<%= (@video.attachment.video_content_type == 'video/mp4') ? 'video/mp4' : 'video/webm' %>" >     
       </video>
   <% elsif @video.video_type == "9gag" %>
-  	<% image = rend_dimention_video(@video.dimention) %>
+    <% image = rend_dimention_video(@video.dimention) %>
      <video loop controls preload autoplay class="video-detail-gif" poster="http://img-9gag-fun.9cache.com/photo/<%= @video.video_id %>.jpg" width="<%= image['width'] %>" height="<%= image['height'] %>" style="max-width: 600px">
         <source src="http://img-9gag-fun.9cache.com/photo/<%= @video.video_id %>v.mp4" type="video/mp4" >
         <source src="http://img-9gag-fun.9cache.com/photo/<%= @video.video_id %>vwm.webm" type="video/webm" >

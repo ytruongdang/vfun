@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :current_user, :user_logged?, :permission?, :controller?, :action?, :get_name, :get_dimention_image, :rend_dimention_video
+  helper_method :current_user, :user_logged?, :permission?, :controller?, :action?, :get_name, :get_dimention_image, :rend_dimention_video, :image_content
   
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -59,5 +59,16 @@ class ApplicationController < ActionController::Base
       # return dimention
     end
       return {'width'=> 'auto', 'height' => 'auto'}
+  end
+  def image_content(video)
+    if video.video_type == "youtube"
+      return "http://i.ytimg.com/vi/#{video.video_id}/hqdefault.jpg"
+    elsif video.video_type == "9gag"
+      return "http://img-9gag-fun.9cache.com/photo/#{video.video_id}.jpg"
+    elsif video.video_type == "upload"
+      return "http://video4l" + get_name(video.attachment.video_file_name, video.attachment.video.url) + ".jpg"
+    else
+      return ""
+    end
   end
 end
