@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
     elsif video.video_type == "9gag"
       return "http://img-9gag-fun.9cache.com/photo/#{video.video_id}.jpg"
     elsif video.video_type == "upload"
-      return "http://video4l" + get_name(video.attachment.video_file_name, video.attachment.video.url) + ".jpg"
+      return get_name(video.attachment.video_file_name, video.attachment.video.url) + ".jpg"
     else
       return ""
     end
