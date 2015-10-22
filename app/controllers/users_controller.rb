@@ -67,7 +67,17 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def confirm_mail
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      user.email_active
+      flash[:success] = "Welcome to Video4l.com! Your email has been confirmed"
+      redirect_to login_path
+    else
+      flash[:warning] = "Sorry, User does not exist"
+      redirect_to root_path
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
