@@ -81,11 +81,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'video247.com',
+    domain:               'video4l.com',
     user_name:            'ytdse02415@fpt.edu.vn',
     password:             'dangy89',
     authentication:       'plain',
     enable_starttls_auto: true  
   }
-  config.action_mailer.default_url_options = { :host => 'video247.com' }
+  config.action_mailer.default_url_options = { :host => 'video4l7.com' }
 end
