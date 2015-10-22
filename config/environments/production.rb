@@ -87,5 +87,5 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true  
   }
-  config.action_mailer.default_url_options = { :host => 'video4l7.com' }
+  config.action_mailer.default_url_options = { :host => 'video4l.com' }
 end
