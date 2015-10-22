@@ -11,7 +11,7 @@
 	<meta property="og:url" content="http://video4l.com/" />
 	<meta property="og:description" content="<%= (yield(:description).empty? ? "video hài mới nhất, clip hài mới nhất, xem hài mới nhất" : yield(:description) ) %>" />
 	<meta property="og:type" content="<%= (yield(:type).empty? ? "website" : yield(:type) ) %>" />
-	<meta property="og:image" content="<%= (yield(:image).empty? ? "http://images-cdn.9gag.com/img/9gag-fb-pic.png" : yield(:image) ) %>" />
+	<meta property="og:image" content="<%= (yield(:image_content).empty? ? "http://images-cdn.9gag.com/img/9gag-fb-pic.png" : yield(:image_content) ) %>" />
 	<meta property="fb:app_id" content="189194708079875" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
