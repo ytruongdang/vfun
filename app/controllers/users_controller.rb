@@ -72,7 +72,7 @@ class UsersController < ApplicationController
     if user
       user.email_active
       flash[:success] = "Welcome to Video4l.com! Your email has been confirmed"
-      redirect_to login_path
+      redirect_to dang_nhap_path
     else
       flash[:warning] = "Sorry, User does not exist"
       redirect_to root_path
