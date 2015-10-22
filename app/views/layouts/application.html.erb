@@ -7,10 +7,11 @@
 	<meta name='description' content="<%= (yield(:description).empty? ? "video hài mới nhất, clip hài mới nhất, xem hài mới nhất" : yield(:description) ) %>" />
 	<meta name='keywords' content="<%= (yield(:keywords).empty? ? 'video hài, video vui, video cười' : yield(:keywords) ) %>" />
 	<meta property="og:title" content="<%= (yield(:title).empty? ? "Video4l" : yield(:title) + " - Video4l") %>" />
-	<meta property="og:site_name" content="" />
+	<meta property="og:site_name" content="video4l" />
 	<meta property="og:url" content="http://video4l.com/" />
 	<meta property="og:description" content="<%= (yield(:description).empty? ? "video hài mới nhất, clip hài mới nhất, xem hài mới nhất" : yield(:description) ) %>" />
-	
+	<meta property="og:type" content="<%= (yield(:type).empty? ? "website" : yield(:type) ) %>" />
+	<meta property="og:image" content="<%= (yield(:image).empty? ? "http://images-cdn.9gag.com/img/9gag-fb-pic.png" : yield(:image) ) %>" />
 	<meta property="fb:app_id" content="189194708079875" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
