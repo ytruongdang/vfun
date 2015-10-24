@@ -84,21 +84,46 @@ body {
 .video-info {
   float: left;
   width: 100%;
+  text-align: left;
 }
 .video-info h2 {
   font-size: 20px;
   margin: 0;
   padding: 0;
+  line-height: 28px;
 }
 .video-info h2 a {
   text-decoration: none;
   color: #383636;
 }
-video-info h2 a:hover {
+video-info h2 a:hover, .share a:hover, .share a:active, .share a:focus {
   text-decoration: none;
   color: #2A7EC5;
 }
-
+.video-bottom {
+  width: 100%;
+  float: left;
+}
+.video-bottom .video-data {
+  float: left;
+  margin-top: 5px;
+}
+.video-bottom .share {
+  float: right;
+  margin-top: 5px;
+}
+.video-bottom .share a {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px 10px;
+  color: #fff;
+}
+.twitter-share {
+  background: #00aced;
+}
+.facebook-share {
+  background: #3b5998;
+}
 .widgets h3 {
   margin: 0 0 10px 0;
   padding: 0;

@@ -5,10 +5,7 @@
   <div class="video">
     <div class="video-info">
       <h2><%= link_to p.title, video_path(p), target: '_blank' %></h2>
-      <div class="video-data">
-        <span>Post by: <%= link_to p.user.username, user_path(p.user), class: 'video-user' %></span>
-        <span>Views: <%= (p.viewed ? number_with_delimiter(p.viewed, delimiter: '.') : 0 ) %></span>
-      </div>
+      
     </div>
     <div class="video-thumbnai ">
     <% if p.video_type == "youtube" %>
@@ -31,9 +28,15 @@
       <span><i class="fa fa-play-circle-o"></i></span>
     <% end %>
     </div>
-    
-    <div class="share">
-      <a href="http://www.facebook.com/sharer/sharer.php?u=<%= video_url(p) %>" class="facebookbtn-link"><i class="fa fa-facebook"></i></a>        
+    <div class="video-bottom">
+      <div class="video-data">
+        <span>Post by: <%= link_to p.user.username, user_path(p.user), class: 'video-user' %></span>
+        <span>Views: <%= (p.viewed ? number_with_delimiter(p.viewed, delimiter: '.') : 0 ) %></span>
+      </div>
+      <div class="share">
+        <a href="http://www.facebook.com/sharer/sharer.php?u=<%= video_url(p) %>" class="facebookbtn-link facebook-share"><i class="fa fa-facebook"></i> facebook</a>
+        <a href="http://twitter.com/intent/tweet?status=<%= video_url(p) %>" class="facebookbtn-link twitter-share"><i class="fa fa-twitter"></i> twitter</a>        
+      </div>
     </div>
   </div>
   <% end %>

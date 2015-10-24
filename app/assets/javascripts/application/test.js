@@ -72,11 +72,11 @@
                      ',top='    + top    +
                      ',left='   + left;
 
-        window.open(url, 'twitter', opts);
+        window.open(url, 'facebook', opts);
 
         return false;
     });
-    
+
   });
   
   

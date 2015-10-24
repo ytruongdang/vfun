@@ -6,12 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name='description' content="<%= (yield(:description).empty? ? "video hài mới nhất, clip hài mới nhất, xem hài mới nhất" : yield(:description) ) %>" />
 	<meta name='keywords' content="<%= (yield(:keywords).empty? ? 'video hài, video vui, video cười' : yield(:keywords) ) %>" />
+	<meta name="twitter:card" content="photo" />
+	<meta name="twitter:site" content="@video4l" />
+	<meta name="twitter:image" content="<%= (yield(:image_content).empty? ? "http://images-cdn.9gag.com/img/9gag-fb-pic.png" : yield(:image_content) ) %>" />
 	<meta property="og:title" content="<%= (yield(:title).empty? ? "Video4l" : yield(:title) + " - Video4l") %>" />
 	<meta property="og:site_name" content="video4l" />
 	<meta property="og:url" content="http://video4l.com<%= (yield(:url).empty? ? "/" : yield(:url) ) %>" />
 	<meta property="og:description" content="<%= (yield(:description).empty? ? "video hài mới nhất, clip hài mới nhất, xem hài mới nhất" : yield(:description) ) %>" />
 	<meta property="og:type" content="<%= (yield(:type).empty? ? "website" : yield(:type) ) %>" />
+	<% if yield(:video).empty? %>
 	<meta property="og:image" content="<%= (yield(:image_content).empty? ? "http://images-cdn.9gag.com/img/9gag-fb-pic.png" : yield(:image_content) ) %>" />
+	<% else %>
+	<meta property="og:video" content="<%= yield(:video) %>" />
+	<% end %>
 	<meta property="fb:app_id" content="470961649670120" />
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>  
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
